@@ -12,5 +12,21 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(tidyverse)
 library(p8105.datasets)
+    data("nyc_airbnb")
+library(leaflet)
 ```
+
+```{r}
+view(nyc_airbnb)
+colnames(nyc_airbnb)
+```
+
+```{r}
+airbnb_map <-
+    nyc_airbnb %>% 
+    leaflet() %>% 
+    addTiles() %>% 
+    addMarkers(~ long, ~ lat)
+```
+
 
